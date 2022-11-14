@@ -7,6 +7,7 @@ import {
   createUserDocFromAuth,
   signInWithGoogleRedirect,
 } from "../../utils/firebase/firebase.js";
+import SignUp from "../../components/sign-up/SignUp.jsx";
 
 const SignIn = () => {
   useEffect(() => {
@@ -30,6 +31,7 @@ const SignIn = () => {
       <button onClick={signInWithGoogleRedirect}>
         Sign In with Google redirect
       </button>
+      <SignUp />
     </div>
   );
 };
