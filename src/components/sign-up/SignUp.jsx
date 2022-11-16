@@ -3,6 +3,7 @@ import {
   createAuthWithEmailPass,
   createUserDocFromAuth,
 } from "../../utils/firebase/firebase";
+import Button from "../button/Button";
 import FormInput from "../form-input/FormInput";
 import "./sign-up.scss";
 const defaultFormFields = {
@@ -73,7 +74,7 @@ const SignUp = () => {
           onChange={handleChange}
           value={confirmPassword}
         />
-        <button type='submit'>Submit</button>
+        <Button type='submit'>Submit</Button>
       </form>
     </div>
   );
