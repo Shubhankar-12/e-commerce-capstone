@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import {
-  createAuthWithEmailPass,
-  createUserDocFromAuth,
   signInWithEmailPass,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase";
@@ -16,6 +14,7 @@ const defaultFormFields = {
 const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormFields({ ...formFields, [name]: value });
@@ -23,8 +22,7 @@ const SignIn = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      const response = await signInWithEmailPass(email, password);
-      console.log(response);
+      await signInWithEmailPass(email, password);
       setFormFields(defaultFormFields);
     } catch (err) {
       if (err.code === "auth/wrong-password") {
@@ -36,8 +34,7 @@ const SignIn = () => {
     }
   };
   const signInWithGoogle = async () => {
-    const { user } = await signInWithGooglePopup();
-    await createUserDocFromAuth(user);
+    await signInWithGooglePopup();
   };
   return (
     <div className='sign-up-container'>
