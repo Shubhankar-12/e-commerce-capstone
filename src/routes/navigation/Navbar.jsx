@@ -13,7 +13,7 @@ const Navbar = () => {
   const signOutHandler = async () => {
     await signOutUser();
   };
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen } = useContext(CartContext);
   return (
     <Fragment>
       <div className='navigation'>
