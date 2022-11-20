@@ -18,21 +18,23 @@ const CheckoutItem = ({ cartItem }) => {
             removeItemFromCard(cartItem);
           }}
         >
-          &#10094;{" "}
+          &#10094;
         </div>
-        {quantity}
+        <span className='value'>{quantity}</span>
         <div
           className='arrow'
           onClick={() => {
             addItemsToCart(cartItem);
           }}
         >
-          {" "}
           &#10095;
         </div>
       </span>
       <span className='price'> {price} </span>
-      <div className='remove-item' onClick={() => clearItemFromCart(cartItem)}>
+      <div
+        className='remove-button'
+        onClick={() => clearItemFromCart(cartItem)}
+      >
         &#10005;
       </div>
     </div>
