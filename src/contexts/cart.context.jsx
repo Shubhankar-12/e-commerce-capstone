@@ -29,6 +29,13 @@ export const CartProvider = ({ children }) => {
   const addItemsToCart = (productToAdd) => {
     setCartItems(addCartItem(cartItems, productToAdd));
   };
+  const removeCartItem = (productToRemove) => {
+    const newCartItems = cartItems.filter((item) => {
+      return item.id !== productToRemove.id;
+    });
+    setCartItems(newCartItems);
+  };
+
   useEffect(() => {
     const newCartCount = cartItems.reduce(
       (total, CartItem) => total + CartItem.quantity,
@@ -43,6 +50,7 @@ export const CartProvider = ({ children }) => {
     addItemsToCart,
     cartItems,
     cartCount,
+    removeCartItem,
   };
   return (
     <CartContext.Provider value={value}> {children} </CartContext.Provider>
