@@ -8,6 +8,7 @@ const Shop = () => {
   return (
     <Routes>
       <Route index element={<CategoriesPreview />} />
+      {/* : for route parameter */}
       <Route path=':category' element={<Category />} />
     </Routes>
   );
