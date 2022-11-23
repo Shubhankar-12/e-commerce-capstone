@@ -12,6 +12,7 @@ const Category = () => {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
   return (
+    // sub category temporary class
     <div className='subcategory-container'>
       {products &&
         products.map((product) => (
