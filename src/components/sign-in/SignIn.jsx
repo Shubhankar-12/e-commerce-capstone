@@ -3,7 +3,7 @@ import {
   signInWithEmailPass,
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase";
-import Button from "../button/Button";
+import Button, { Button_type_classes } from "../button/Button";
 import FormInput from "../form-input/FormInput";
 import "./sign-in.scss";
 const defaultFormFields = {
@@ -62,7 +62,7 @@ const SignIn = () => {
             Sign In
           </Button>
           <Button
-            buttonType={"google"}
+            buttonType={Button_type_classes.google}
             type='button'
             onClick={signInWithGoogle}
           >
