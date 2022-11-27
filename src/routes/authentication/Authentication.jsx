@@ -11,7 +11,7 @@ const Authentication = () => {
   const redirect = () => {
     setTimeout(() => {
       navigate("/");
-    }, 5000);
+    }, 2000);
   };
   const { currentUser } = useContext(UserContext);
   if (currentUser) redirect();
