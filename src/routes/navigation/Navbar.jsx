@@ -12,10 +12,11 @@ import {
   NavLink,
 } from "./navigation.styles";
 import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const Navbar = () => {
   // const { currentUser } = useContext(UserContext);
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const currentUser = useSelector(selectCurrentUser);
   const { setIsCartOpen } = useContext(CartContext);
 
   const signOutHandler = async () => {
