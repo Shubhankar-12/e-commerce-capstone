@@ -5,6 +5,7 @@ import SignIn from "../../components/sign-in/SignIn.jsx";
 import "./Authentication.scss";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { selectCurrentUser } from "../../store/user/user.selector.js";
 
 const Authentication = () => {
   const navigate = useNavigate();
@@ -13,7 +14,7 @@ const Authentication = () => {
       navigate("/");
     }, 2000);
   };
-  const currentUser = useSelector((state) => state.user.currentUser);
+  const currentUser = useSelector(selectCurrentUser);
   if (currentUser) redirect();
   return (
     <div className='auth-container'>
