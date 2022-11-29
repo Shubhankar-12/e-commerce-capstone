@@ -9,5 +9,5 @@ const composeEnhancer = compose(applyMiddleware(...middleware));
 
 export const store = configureStore({
   reducer: rootReducer,
-  enhancers: composeEnhancer,
+  middleware: [logger],
 });
