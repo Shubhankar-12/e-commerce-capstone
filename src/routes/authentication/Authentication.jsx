@@ -3,8 +3,8 @@ import React, { Fragment, useContext, useEffect } from "react";
 import SignUp from "../../components/sign-up/SignUp.jsx";
 import SignIn from "../../components/sign-in/SignIn.jsx";
 import "./Authentication.scss";
-import { UserContext } from "../../contexts/user.context.jsx";
 import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Authentication = () => {
   const navigate = useNavigate();
@@ -13,7 +13,7 @@ const Authentication = () => {
       navigate("/");
     }, 2000);
   };
-  const { currentUser } = useContext(UserContext);
+  const currentUser = useSelector((state) => state.user.currentUser);
   if (currentUser) redirect();
   return (
     <div className='auth-container'>
