@@ -10,6 +10,7 @@ A react based App using the concept of react, react-rounting, redux and many mor
 - Dynamic routing
 - context management using useContext Hook
 - Saas styling
+- Redux
 
 ## Demo
 
