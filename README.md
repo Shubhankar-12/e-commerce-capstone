@@ -7,7 +7,7 @@ A react based App using the concept of react, react-rounting, redux and many mor
 - Authentication using firbase
 - Database integration using firbase firestore
 - Google oAuth and basic email/password using firbase
-- Dynamic routing
+- Dynamic routing using react-router-dom
 - context management using useContext Hook
 - Saas styling
 - Redux
