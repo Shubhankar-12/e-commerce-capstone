@@ -15,7 +15,7 @@ const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 // middlewares used
 export const store = configureStore({
-  reducer: persistReducer,
+  reducer: persistedReducer,
   middleware: [logger],
 });
 
