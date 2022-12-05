@@ -7,13 +7,12 @@ import persistStore from "redux-persist/es/persistStore";
 import createSagaMiddleware from "@redux-saga/core";
 // import thunk from "redux-thunk";
 
+const sagaMiddleware = createSagaMiddleware();
 const persistConfig = {
   key: "root",
   storage,
   whitelist: ["cart"],
 };
-
-const sagaMiddleware = createSagaMiddleware();
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
@@ -25,5 +24,7 @@ export const store = configureStore({
     sagaMiddleware,
   ].filter(Boolean),
 });
+
+sagaMiddleware.run(rootReducer);
 
 export const persistor = persistStore(store);
