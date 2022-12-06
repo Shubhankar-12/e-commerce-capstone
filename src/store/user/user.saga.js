@@ -3,7 +3,7 @@ import {
   createUserDocFromAuth,
   getCurrentUser,
 } from "../../utils/firebase/firebase";
-import { signInFailed } from "./user.acton";
+import { signInFailed, signInSuccess } from "./user.acton";
 import { USER_ACTION_TYPES } from "./user.types";
 
 export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
@@ -13,8 +13,7 @@ export function* getSnapshotFromUserAuth(userAuth, additionalDetails) {
       userAuth,
       additionalDetails
     );
-    console.log(userSnapshot);
-    console.log(userSnapshot.data());
+    yield put(signInSuccess({ id: userSnapshot.id, ...userSnapshot.data() }));
   } catch (error) {
     yield put(signInFailed);
   }
