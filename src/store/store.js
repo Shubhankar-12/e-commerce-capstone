@@ -5,13 +5,14 @@ import storage from "redux-persist/lib/storage";
 import persistReducer from "redux-persist/es/persistReducer";
 import persistStore from "redux-persist/es/persistStore";
 import createSagaMiddleware from "@redux-saga/core";
+import { rootSaga } from "./redux-saga";
 // import thunk from "redux-thunk";
 
 const sagaMiddleware = createSagaMiddleware();
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["cart"],
+  blacklist: ["user"],
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -25,6 +26,6 @@ export const store = configureStore({
   ].filter(Boolean),
 });
 
-sagaMiddleware.run(rootReducer);
+sagaMiddleware.run(rootSaga);
 
 export const persistor = persistStore(store);

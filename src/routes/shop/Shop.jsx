@@ -1,8 +1,7 @@
 import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { Route, Routes } from "react-router-dom";
-import { fetchCategoryAsync } from "../../store/categories/category.action";
-import { getCollectionandDocuments } from "../../utils/firebase/firebase";
+import { fetchCategoryStart } from "../../store/categories/category.action";
 import CategoriesPreview from "../categories-preview/CategoriesPreview";
 import Category from "../category/Category";
 import "./shop.styles.scss";
@@ -10,7 +9,7 @@ import "./shop.styles.scss";
 const Shop = () => {
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(fetchCategoryAsync());
+    dispatch(fetchCategoryStart());
   }, []);
   return (
     <Routes>

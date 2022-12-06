@@ -82,7 +82,7 @@ export const createUserDocFromAuth = async (userAuth, additonalInfo = {}) => {
       console.log("Error creating the use \n", e.message);
     }
   }
-  return userDocRef;
+  return userSnapshot;
 };
 
 export const createAuthWithEmailPass = async (email, password) => {
@@ -100,3 +100,16 @@ export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListner = (callback) =>
   onAuthStateChanged(auth, callback);
+
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unSubscribe = onAuthStateChanged(
+      auth,
+      (userAuth) => {
+        unSubscribe();
+        resolve(userAuth);
+      },
+      reject
+    );
+  });
+};
