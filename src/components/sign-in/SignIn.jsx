@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { googleSignInStart } from "../../store/user/user.acton";
-import { signInWithEmailPass } from "../../utils/firebase/firebase";
+import {
+  emailSignInStart,
+  googleSignInStart,
+} from "../../store/user/user.acton";
 import Button, { Button_type_classes } from "../button/Button";
 import FormInput from "../form-input/FormInput";
 import "./sign-in.scss";
@@ -22,7 +24,7 @@ const SignIn = () => {
   const submitHandler = async (e) => {
     e.preventDefault();
     try {
-      await signInWithEmailPass(email, password);
+      dispatch(emailSignInStart(email, password));
       setFormFields(defaultFormFields);
     } catch (err) {
       if (err.code === "auth/wrong-password") {
