@@ -10,17 +10,19 @@ import {
   NavLinks,
   NavLink,
 } from "./navigation.styles";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { selectCurrentUser } from "../../store/user/user.selector";
 import { selectCartIsOpen } from "../../store/cart/cart.selector";
 import { setIsCartOpen } from "../../store/cart/cart.action";
+import { signOutStart } from "../../store/user/user.acton";
 
 const Navbar = () => {
+  const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectCartIsOpen);
 
   const signOutHandler = async () => {
-    await signOutUser();
+    dispatch(signOutStart());
     setIsCartOpen(false);
   };
   return (
