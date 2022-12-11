@@ -11,6 +11,7 @@ A react based App using the concept of react, react-rounting, redux and many mor
 - context management using useContext Hook
 - Saas styling
 - Redux, Redux-Thunk, Redux-Saga
+- payment process using stripe
 
 ## Demo
 
