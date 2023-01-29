@@ -23,11 +23,6 @@ export type FetchCategoryFailed = ActionWithPayload<
   Error
 >;
 
-export type CategoryAction =
-  | FetchCategoryStart
-  | FetchCategorySuccess
-  | FetchCategoryFailed;
-
 export const fetchCategoryStart = withMatcher(
   (): FetchCategoryStart =>
     createAction(CATEGORIES_ACTION_TYPES.FETCH_CATEGORY_START)
