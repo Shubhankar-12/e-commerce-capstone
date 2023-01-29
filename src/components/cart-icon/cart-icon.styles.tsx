@@ -1,3 +1,4 @@
+/// <reference types="react-scripts" />
 import styled from "styled-components";
 import { ReactComponent as ShoppingSvg } from "../../asset/shopping-bag.svg";
 
