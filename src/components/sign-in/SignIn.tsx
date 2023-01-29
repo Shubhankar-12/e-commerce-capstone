@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import {
   emailSignInStart,
@@ -6,7 +6,7 @@ import {
 } from "../../store/user/user.acton";
 import Button, { Button_type_classes } from "../button/Button";
 import FormInput from "../form-input/FormInput";
-import "./sign-in.scss";
+import { ButtonContaner, SignInContainer } from "./sign-in.styles";
 const defaultFormFields = {
   email: "",
   password: "",
@@ -17,21 +17,16 @@ const SignIn = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormFields({ ...formFields, [name]: value });
   };
-  const submitHandler = async (e) => {
+  const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     try {
       dispatch(emailSignInStart(email, password));
       setFormFields(defaultFormFields);
     } catch (err) {
-      if (err.code === "auth/wrong-password") {
-        alert("Incorrect Password");
-      } else if (err.code === "auth/user-not-found") {
-        alert("No User found with this account!");
-      }
       console.log(err);
     }
   };
@@ -39,7 +34,7 @@ const SignIn = () => {
     dispatch(googleSignInStart());
   };
   return (
-    <div className='sign-up-container'>
+    <SignInContainer>
       <h2>Already have an Account!</h2>
       <span>Sign In with email and password</span>
       <form onSubmit={submitHandler}>
@@ -60,9 +55,7 @@ const SignIn = () => {
           value={password}
         />
         <div className='button-container-div'>
-          <Button type='submit' onClick={submitHandler}>
-            Sign In
-          </Button>
+          <Button type='submit'>Sign In</Button>
           <Button
             buttonType={Button_type_classes.google}
             type='button'
@@ -72,7 +65,7 @@ const SignIn = () => {
           </Button>
         </div>
       </form>
-    </div>
+    </SignInContainer>
   );
 };
 

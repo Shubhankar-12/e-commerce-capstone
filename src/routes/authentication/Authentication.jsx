@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 
-import SignUp from "../../components/sign-up/SignUp.jsx";
-import SignIn from "../../components/sign-in/SignIn.jsx";
+import SignUp from "../../components/sign-up/SignUp";
+import SignIn from "../../components/sign-in/SignIn";
 import "./Authentication.scss";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";

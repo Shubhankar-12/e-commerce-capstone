@@ -5,7 +5,7 @@ import {
   GoogleSignInButton,
   InvertedButton,
   LoadingSpinner,
-} from "./button.styles.jsx";
+} from "./button.styles";
 export enum Button_type_classes {
   base = "base",
   google = "google-sign-in",
