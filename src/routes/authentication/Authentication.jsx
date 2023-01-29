@@ -5,7 +5,7 @@ import SignIn from "../../components/sign-in/SignIn.jsx";
 import "./Authentication.scss";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectCurrentUser } from "../../store/user/user.selector.js";
+import { selectCurrentUser } from "../../store/user/user.selector";
 
 const Authentication = () => {
   const navigate = useNavigate();
