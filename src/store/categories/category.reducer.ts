@@ -16,7 +16,7 @@ export const CATEGORIES_INITIAL_STATE: CategoryState = {
 export const categoriesReducer = (
   state = CATEGORIES_INITIAL_STATE,
   action = {} as CategoryAction
-) => {
+): CategoryState => {
   switch (action.type) {
     case CATEGORIES_ACTION_TYPES.FETCH_CATEGORY_START:
       return { ...state, isLoading: true };
@@ -25,7 +25,7 @@ export const categoriesReducer = (
     case CATEGORIES_ACTION_TYPES.FETCH_CATEGORY_FAILED:
       return { ...state, error: action.payload, isLoading: false };
 
-    default:
-      return state;
+    // default:
+    //   return state;
   }
 };
