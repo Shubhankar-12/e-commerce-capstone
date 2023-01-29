@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import { AuthError, AuthErrorCodes } from "firebase/auth";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { signUpStart } from "../../store/user/user.acton";
 import Button from "../button/Button";
 import FormInput from "../form-input/FormInput";
-import "./sign-up.scss";
+import { SignUpContainer } from "./sign-up.styles";
 const defaultFormFields = {
   displayName: "",
   email: "",
@@ -16,11 +17,11 @@ const SignUp = () => {
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
 
-  const handleChange = (e) => {
+  const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormFields({ ...formFields, [name]: value });
   };
-  const submitHandler = async (e) => {
+  const submitHandler = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (password !== confirmPassword) {
       alert("Password doesn't match!");
@@ -30,13 +31,13 @@ const SignUp = () => {
       dispatch(signUpStart(email, password, displayName));
       setFormFields(defaultFormFields);
     } catch (e) {
-      if (e.code === "auth/email-already-in-use") {
+      if ((e as AuthError).code === AuthErrorCodes.EMAIL_EXISTS) {
         alert("User already exist");
       } else console.log(e);
     }
   };
   return (
-    <div className='sign-up-container'>
+    <SignUpContainer>
       <h2>Don't have an account?</h2>
       <span>Sign up with email and password</span>
       <form onSubmit={submitHandler}>
@@ -74,7 +75,7 @@ const SignUp = () => {
         />
         <Button type='submit'>Sign Up</Button>
       </form>
-    </div>
+    </SignUpContainer>
   );
 };
 
