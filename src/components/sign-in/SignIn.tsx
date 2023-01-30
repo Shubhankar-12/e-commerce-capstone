@@ -54,7 +54,7 @@ const SignIn = () => {
           onChange={handleChange}
           value={password}
         />
-        <div className='button-container-div'>
+        <ButtonContaner>
           <Button type='submit'>Sign In</Button>
           <Button
             buttonType={Button_type_classes.google}
@@ -63,7 +63,7 @@ const SignIn = () => {
           >
             Google Sign In
           </Button>
-        </div>
+        </ButtonContaner>
       </form>
     </SignInContainer>
   );
