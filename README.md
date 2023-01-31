@@ -13,6 +13,7 @@ A react based App using the concept of react, react-rounting, redux and many mor
 - Redux, Redux-Thunk, Redux-Saga
 - payment process using stripe
 - typescript
+- memo and callback hooks to optimise code
 
 ## Demo
 
