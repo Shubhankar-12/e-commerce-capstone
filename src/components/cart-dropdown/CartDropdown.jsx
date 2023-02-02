@@ -1,4 +1,3 @@
-import React from "react";
 import Button from "../button/Button";
 import CartItem from "../cart-item/CartItem";
 import { useNavigate } from "react-router-dom";
