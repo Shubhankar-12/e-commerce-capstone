@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import CheckoutItem from "../../components/chechout-item/CheckoutItem";
 import PaymentForm from "../../components/payment-form/PaymentForm";
