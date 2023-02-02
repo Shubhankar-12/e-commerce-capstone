@@ -6,6 +6,7 @@ import { checkUserSession } from "./store/user/user.acton";
 import Checkout from "./routes/checkout/Checkout";
 import Navbar from "./routes/navigation/Navbar";
 import Shop from "./routes/shop/Shop";
+import { GlobalStyle } from "./global.styles";
 const Home = lazy(() => import("./routes/home/Home"));
 const Authentication = lazy(() =>
   import("./routes/authentication/Authentication")
@@ -18,6 +19,7 @@ const App = () => {
   }, []);
   return (
     <div className='App'>
+      <GlobalStyle />
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path='/' element={<Navbar />}>
