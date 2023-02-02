@@ -1,10 +1,20 @@
-import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addItemsToCart } from "../../store/cart/cart.action";
 import { selectCartItems } from "../../store/cart/cart.selector";
+import { CategoryItem } from "../../store/categories/category.type";
 import Button, { Button_type_classes } from "../button/Button";
-import "./product-card.styles.scss";
-const ProductCard = ({ product }) => {
+import {
+  Footer,
+  Name,
+  Price,
+  ProductCartContainer,
+} from "./product-card.styles";
+
+type ProductCardProps = {
+  product: CategoryItem;
+};
+
+const ProductCard = ({ product }: ProductCardProps) => {
   const { name, price, imageUrl } = product;
   const dispatch = useDispatch();
   const cartItems = useSelector(selectCartItems);
@@ -12,19 +22,19 @@ const ProductCard = ({ product }) => {
     dispatch(addItemsToCart(cartItems, product));
   };
   return (
-    <div className='product-card-container'>
+    <ProductCartContainer>
       <img src={imageUrl} alt={`${name}`} />
-      <div className='footer'>
-        <span className='name'>{name}</span>
-        <span className='price'>{price} </span>
-      </div>
+      <Footer>
+        <Name>{name}</Name>
+        <Price>{price} </Price>
+      </Footer>
       <Button
         buttonType={Button_type_classes.inverted}
         onClick={addItemHandler}
       >
         Add to cart
       </Button>
-    </div>
+    </ProductCartContainer>
   );
 };
 
