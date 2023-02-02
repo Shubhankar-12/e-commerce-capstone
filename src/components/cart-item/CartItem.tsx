@@ -5,10 +5,10 @@ import "./cart-item.styles.tsx";
 import { CartItem as TCartItem } from "../../store/cart/cart.type";
 
 type CartItemProps = {
-  cartItems: TCartItem;
+  cartItem: TCartItem;
 };
-const CartItem = memo(({ cartItems }: CartItemProps) => {
-  const { name, imageUrl, price, quantity } = cartItems;
+const CartItem = memo(({ cartItem }: CartItemProps) => {
+  const { name, imageUrl, price, quantity } = cartItem;
   return (
     <CartItemContainer>
       <img src={imageUrl} alt={`${name}`} />
