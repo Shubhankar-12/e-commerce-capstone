@@ -12,8 +12,18 @@ export const SignInContainer = styled.div<SignInProps>`
     margin: 10px 0;
   }
   @media screen and (max-width: 880px) {
-    display: ${({ newUser }) => newUser && "none"};
     width: 80vw;
+    display: ${({ newUser }) => newUser && "none"};
+    animation: show 1s ease-in-out forwards;
+    transform-style: preserve-3d;
+  }
+  @keyframes show {
+    from {
+      transform: rotateY(0deg);
+    }
+    to {
+      transform: rotateY(360deg);
+    }
   }
 `;
 export const ButtonContaner = styled.div`
