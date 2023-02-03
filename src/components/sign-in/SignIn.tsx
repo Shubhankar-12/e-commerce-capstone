@@ -12,7 +12,11 @@ const defaultFormFields = {
   password: "",
 };
 
-const SignIn = () => {
+type SignInProps = {
+  newUser: boolean;
+};
+
+const SignIn = ({ newUser }: SignInProps) => {
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
@@ -34,7 +38,7 @@ const SignIn = () => {
     dispatch(googleSignInStart());
   };
   return (
-    <SignInContainer>
+    <SignInContainer newUser={newUser}>
       <h2>Already have an Account!</h2>
       <span>Sign In with email and password</span>
       <form onSubmit={submitHandler}>

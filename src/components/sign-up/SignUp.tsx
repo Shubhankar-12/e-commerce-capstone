@@ -1,5 +1,5 @@
 import { AuthError, AuthErrorCodes } from "firebase/auth";
-import React, { ChangeEvent, FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { signUpStart } from "../../store/user/user.acton";
 import Button from "../button/Button";
@@ -12,7 +12,11 @@ const defaultFormFields = {
   confirmPassword: "",
 };
 
-const SignUp = () => {
+type SignUpProps = {
+  newUser: boolean;
+};
+
+const SignUp = ({ newUser }: SignUpProps) => {
   const dispatch = useDispatch();
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { displayName, email, password, confirmPassword } = formFields;
@@ -37,7 +41,7 @@ const SignUp = () => {
     }
   };
   return (
-    <SignUpContainer>
+    <SignUpContainer newUser={newUser}>
       <h2>Don't have an account?</h2>
       <span>Sign up with email and password</span>
       <form onSubmit={submitHandler}>
