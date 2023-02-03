@@ -19,10 +19,12 @@ export const SignInContainer = styled.div<SignInProps>`
   }
   @keyframes show {
     from {
-      transform: rotateY(0deg);
+      transform: rotateY(180deg);
+      opacity: 0;
     }
     to {
       transform: rotateY(360deg);
+      opacity: 1;
     }
   }
 `;
