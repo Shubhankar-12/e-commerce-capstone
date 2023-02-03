@@ -18,11 +18,14 @@ export const SignInContainer = styled.div<SignInProps>`
     transform-style: preserve-3d;
   }
   @keyframes show {
-    from {
+    0% {
       transform: rotateY(180deg);
       opacity: 0;
     }
-    to {
+    50% {
+      opacity: 0.25;
+    }
+    100% {
       transform: rotateY(360deg);
       opacity: 1;
     }
