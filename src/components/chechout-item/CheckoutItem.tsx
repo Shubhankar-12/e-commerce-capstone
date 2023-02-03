@@ -14,6 +14,7 @@ import {
   ImageContainer,
   Quantity,
   RemoveButton,
+  Value,
 } from "./checkout-item.styles";
 import "./checkout-item.styles.tsx";
 
@@ -40,7 +41,7 @@ const CheckoutItem = memo(({ cartItem }: CheckoutItemProps) => {
         >
           &#10094;
         </Arrow>
-        <span className='value'>{quantity}</span>
+        <Value>{quantity}</Value>
         <Arrow
           onClick={() => {
             dispatch(addItemsToCart(cartItems, cartItem));
