@@ -12,6 +12,11 @@ export const SubCategoryContainer = styled.div`
     grid-gap: 15px;
     row-gap: 30px;
   }
+  @media screen and (max-width: 400px) {
+    grid-template-columns: 1fr;
+    grid-row-gap: 25px;
+    justify-items: center;
+  }
 `;
 export const CategoryTitle = styled.h2`
   text-align: center;
