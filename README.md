@@ -15,6 +15,7 @@ A react based App using the concept of react, react-rounting, redux and many mor
 - typescript
 - memo and callback hooks to optimise code
 - Progressive Web App(PWA)
+- Testing in react
 
 ## Demo
 
