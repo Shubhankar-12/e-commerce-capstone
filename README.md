@@ -1,6 +1,6 @@
 # Crown Clothing E-Commerce App
 
-[!image](https://github.com/Shubhankar-12/e-commerce-capstone/blob/main/src/asset/Home.jpg)
+![Home](https://user-images.githubusercontent.com/92200721/217296523-60b07926-0c7f-4629-8beb-3d7a89c57dc6.jpg)
 
 A react based App using the concept of react, react-rounting, redux and many more.
 
