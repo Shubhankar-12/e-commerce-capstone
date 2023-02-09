@@ -1,7 +1,7 @@
 # Crown Clothing E-Commerce App
 
 A react based App using the concept of react, react-rounting, redux and many more.
-![Home](https://user-images.githubusercontent.com/92200721/217296915-a1ce7005-1eb2-4a2e-b412-edd8d47db29d.jpg)
+![Home page](https://user-images.githubusercontent.com/92200721/217296915-a1ce7005-1eb2-4a2e-b412-edd8d47db29d.jpg)
 
 ## Major Concepts learned
 
